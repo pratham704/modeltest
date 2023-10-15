@@ -1,17 +1,14 @@
 from fastapi import FastAPI, Query, HTTPException
 import pandas as pd
 import joblib
-import pickle
-
 
 app = FastAPI()
 
-# Load the model
-with open('main_model_git.pkl', 'rb') as f:
-    model = pickle.load(f)
 
 
 @app.get('/')
+
+
 async def get_prediction(
     Age: int = Query(20, description="Age"),
     Gender: int = Query(1, description="Gender"),
@@ -37,6 +34,9 @@ async def get_prediction(
     obs_consequence: int = Query(0, description="Observed Consequence")
 ):
     # Check if any parameters are missing
+  with open('main_model_git.pkl', 'rb') as f:
+    model = joblib.load(f)  
+
     if (
         Age == Gender == self_employed == family_history == work_interfere == no_employees ==
         remote_work == tech_company == benefits == care_options == wellness_program == seek_help ==
