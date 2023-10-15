@@ -6,10 +6,6 @@ import pickle
 
 app = FastAPI()
 
-
-with open('main_model_git.pkl', 'wb') as f:
-    pickle.dump(model, f)
-
 # Load the model
 with open('main_model_git.pkl', 'rb') as f:
     model = pickle.load(f)
