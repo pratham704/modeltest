@@ -46,16 +46,6 @@ async def scorinng_endpoints(item:ScoringItem):
 
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hey, I'm here!"}
-
-
-
-@app.get("/bro")
-async def root():
-    return {"message": "wassup"}
-
 
 
 
