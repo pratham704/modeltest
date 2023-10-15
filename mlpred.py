@@ -4,7 +4,9 @@ import joblib
 
 app = FastAPI()
 
-
+with open('main_model_git.pkl', 'rb') as f:
+    model = joblib.load(f) 
+ 
 
 
 @app.get("/")
@@ -46,9 +48,7 @@ async def get_prediction(
     obs_consequence: int = Query(0, description="Observed Consequence")
 ):
   # Check if any parameters are missing
-with open('main_model_git.pkl', 'rb') as f:
-    model = joblib.load(f) 
- 
+
 
     if (
         Age == Gender == self_employed == family_history == work_interfere == no_employees ==
@@ -91,3 +91,6 @@ with open('main_model_git.pkl', 'rb') as f:
 
 
 
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
