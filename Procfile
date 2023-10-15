@@ -1,1 +1,1 @@
-web: gunicorn -w 2 -k uvicorn.workers.UvicornWorker mlpred:app
+web: uvicorn mlpred:app --host 0.0.0.0 --port $PORT
