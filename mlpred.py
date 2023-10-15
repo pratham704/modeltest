@@ -6,9 +6,7 @@ app = FastAPI()
 
 
 
-@app.get('/')
-
-
+@app.get('/abc')
 async def get_prediction(
     Age: int = Query(20, description="Age"),
     Gender: int = Query(1, description="Gender"),
