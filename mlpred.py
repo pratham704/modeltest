@@ -4,9 +4,7 @@ import joblib
 
 app = FastAPI()
 
-with open('main_model_git.pkl', 'rb') as f:
-    model = joblib.load(f) 
- 
+
 
 
 @app.get("/")
