@@ -6,7 +6,7 @@ fastapi
 gunicorn
 h11
 idna
-joblib
+joblib==1.3.2
 numpy
 packaging
 pandas
