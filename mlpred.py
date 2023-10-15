@@ -13,6 +13,11 @@ async def root():
 
 
 
+@app.get("/bro")
+async def root():
+    return {"message": "wassup"}
+
+
 
 
 @app.get('/abc')
