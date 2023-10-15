@@ -6,6 +6,12 @@ app = FastAPI()
 
 
 
+
+@app.get("/")
+async def root():
+    return {"message": "Hey, I'm here!"}
+
+
 @app.get('/abc')
 async def get_prediction(
     Age: int = Query(20, description="Age"),
