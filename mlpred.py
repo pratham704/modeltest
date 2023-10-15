@@ -3,7 +3,9 @@ import pandas as pd
 import joblib
 
 app = FastAPI()
-
+ # Check if any parameters are missing
+with open('main_model_git.pkl', 'rb') as f:
+    model = joblib.load(f) 
 
 
 
@@ -45,9 +47,7 @@ async def get_prediction(
     mental_vs_physical: int = Query(1, description="Mental vs Physical"),
     obs_consequence: int = Query(0, description="Observed Consequence")
 ):
-    # Check if any parameters are missing
-  with open('main_model_git.pkl', 'rb') as f:
-    model = joblib.load(f)  
+ 
 
     if (
         Age == Gender == self_employed == family_history == work_interfere == no_employees ==
