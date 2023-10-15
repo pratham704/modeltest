@@ -1,11 +1,19 @@
 from fastapi import FastAPI, Query, HTTPException
 import pandas as pd
 import joblib
+import pickle
+
 
 app = FastAPI()
 
+
+with open('main_model_git.pkl', 'wb') as f:
+    pickle.dump(model, f)
+
+# Load the model
 with open('main_model_git.pkl', 'rb') as f:
-    model = joblib.load(f)
+    model = pickle.load(f)
+
 
 @app.get('/')
 async def get_prediction(
