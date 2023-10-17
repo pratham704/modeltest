@@ -1,9 +1,19 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 import pandas as pd
 import joblib
-from pydantic import BaseModel
 
 app = FastAPI()
+
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # You can specify a list of allowed origins or use "*" for any origin (not recommended for production).
+    allow_credentials=True,
+    allow_methods=["*"],  # You can specify HTTP methods that are allowed.
+    allow_headers=["*"],  # You can specify which HTTP headers are allowed.
+)
 
 class ScoringItem(BaseModel):
     Age: int
