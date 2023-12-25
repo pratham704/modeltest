@@ -12,7 +12,7 @@ app.add_middleware(
     allow_origins=["*"],  # You can specify a list of allowed origins or use "*" for any origin (not recommended for production).
     allow_credentials=True,
     allow_methods=["*"],  # You can specify HTTP methods that are allowed.
-    allow_headers=["*"],  # You can specify which HTTP headers are allowed.
+    allow_headers=["*"], 
 )
 
 class ScoringItem(BaseModel):
